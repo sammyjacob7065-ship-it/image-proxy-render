@@ -18,7 +18,7 @@ SPACES = [
     "strangerzonehf/Flux-Super-Realism-LoRA",
     "hugovntr/flux-schnell-realism",
     "XLabs-AI/flux-RealismLora",
-    "togethercomputer/FLUX-schnell-free"
+    "togethercomputer/FLUX-schnell-free",
     "DamarJati/FLUX.1-RealismLora",
 ]
 
