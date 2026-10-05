@@ -8,8 +8,8 @@ app = FastAPI()
 
 # Primary + Fallbacks
 SPACES = [
-    "DamarJati/FLUX.1-RealismLora",          # Primary
-    "black-forest-labs/FLUX.1-schnell",
+    "black-forest-labs/FLUX.1-schnell",          # Primary
+    "DamarJati/FLUX.1-RealismLora",
     "prithivMLmods/FLUX-LoRA-DLC",
     "prithivMLmods/FLUX-REALISM",
     "black-forest-labs/FLUX.1-dev",
@@ -19,6 +19,7 @@ SPACES = [
     "hugovntr/flux-schnell-realism",
     "XLabs-AI/flux-RealismLora",
     "togethercomputer/FLUX-schnell-free"
+    "DamarJati/FLUX.1-RealismLora",
 ]
 
 class PromptRequest(BaseModel):
