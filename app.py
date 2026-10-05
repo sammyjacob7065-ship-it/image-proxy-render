@@ -1,14 +1,11 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from gradio_client import Client
-import httpx
-import random
 
 app = FastAPI()
 
-# Primary + Fallbacks
 SPACES = [
-    "black-forest-labs/FLUX.1-schnell",          # Primary
+    "black-forest-labs/FLUX.1-schnell",
     "DamarJati/FLUX.1-RealismLora",
     "prithivMLmods/FLUX-LoRA-DLC",
     "prithivMLmods/FLUX-REALISM",
@@ -19,7 +16,6 @@ SPACES = [
     "hugovntr/flux-schnell-realism",
     "XLabs-AI/flux-RealismLora",
     "togethercomputer/FLUX-schnell-free",
-    "DamarJati/FLUX.1-RealismLora",
 ]
 
 class PromptRequest(BaseModel):
@@ -37,12 +33,8 @@ async def generate_image(req: PromptRequest):
     for space in SPACES:
         try:
             client = Client(space)
-            # Most Flux spaces use /predict or /generate
-            result = client.predict(
-                req.prompt,
-                api_name="/predict"   # try /predict first
-            )
-            # result is usually a path or url
+            # Call default endpoint, no api_name
+            result = client.predict(req.prompt)
             return {
                 "success": True,
                 "space_used": space,
